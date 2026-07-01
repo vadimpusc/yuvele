@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvele | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A96E;
+            --gold-soft: #D8C39A;
+            --dark: #1A1A1A;
+            --cream: #FAF8F5;
+            --ivory: #F2ECE2;
+            --charcoal: #2D2D2D;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background:
+                radial-gradient(circle at 50% 28%, rgba(201, 169, 110, 0.16), transparent 34%),
+                linear-gradient(135deg, var(--cream) 0%, var(--ivory) 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A96E' stroke-opacity='0.06'%3E%3Ccircle cx='36' cy='36' r='15'/%3E%3Cpath d='M36 3v18M36 51v18M3 36h18M51 36h18'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.75;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 2;
+            display: flex;
+            gap: 0.35rem;
+            padding: 0.35rem;
+            border: 1px solid rgba(201, 169, 110, 0.38);
+            background: rgba(250, 248, 245, 0.72);
+            backdrop-filter: blur(12px);
+        }
+
+        .language-button {
+            min-width: 3rem;
+            border: 0;
+            padding: 0.55rem 0.75rem;
+            background: transparent;
+            color: var(--charcoal);
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .language-button[aria-pressed="true"] {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .language-button:focus-visible {
+            outline: 1px solid var(--dark);
+            outline-offset: 2px;
+        }
+
+        .page::before,
+        .page::after {
+            content: '';
+            position: absolute;
+            border: 1px solid rgba(201, 169, 110, 0.45);
+            pointer-events: none;
+        }
+
+        .page::before {
+            width: min(74vw, 620px);
+            aspect-ratio: 1;
+            transform: rotate(45deg);
+        }
+
+        .page::after {
+            width: min(58vw, 460px);
+            aspect-ratio: 1;
+            border-color: rgba(201, 169, 110, 0.24);
+        }
+
+        main {
+            width: min(100%, 780px);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 4rem 1.25rem;
+        }
+
+        .eyebrow {
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.52em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4.4rem, 15vw, 10rem);
+            font-weight: 300;
+            line-height: 0.92;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 74px;
+            height: 1px;
+            margin: 2.25rem auto;
+            background: var(--gold);
+        }
+
+        .statement {
+            max-width: 620px;
+            margin: 0 auto;
+            color: var(--charcoal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.55rem, 3.6vw, 2.35rem);
+            font-weight: 300;
+            line-height: 1.45;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            margin-top: 3rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.45);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+        }
+
+        html[lang="ja"] body {
+            font-family: 'Montserrat', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+        }
+
+        html[lang="ja"] .statement {
+            max-width: 680px;
+            font-family: 'Cormorant Garamond', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+            font-size: clamp(1.35rem, 3.1vw, 2rem);
+            line-height: 1.8;
+        }
+
+        html[lang="ja"] .eyebrow,
+        html[lang="ja"] .coming-soon {
+            letter-spacing: 0.24em;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding: 1.25rem;
+            }
+
+            .language-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .page::before {
+                width: 86vw;
+            }
+
+            .page::after {
+                width: 68vw;
+            }
+
+            main {
+                padding: 3rem 0.5rem;
+            }
+
+            h1 {
+                letter-spacing: 0.09em;
+            }
+
+            .eyebrow,
+            .coming-soon {
+                letter-spacing: 0.32em;
+            }
+
+            html[lang="ja"] .eyebrow,
+            html[lang="ja"] .coming-soon {
+                letter-spacing: 0.18em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher" aria-label="Language selection">
+        <button class="language-button" type="button" data-language="en" aria-pressed="true">EN</button>
+        <button class="language-button" type="button" data-language="ja" aria-pressed="false">日本語</button>
+    </div>
+
+    <div class="page">
+        <main>
+            <p class="eyebrow" data-i18n="eyebrow">Luxury Jewellery</p>
+            <h1>Yuvele</h1>
+            <div class="divider"></div>
+            <p class="statement" data-i18n="statement">
+                Simple yet elegant, easy to carry, and perfect jewellery for both everyday life and special travel moments.
+            </p>
+            <p class="coming-soon" data-i18n="comingSoon">Coming Soon</p>
+        </main>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: 'Yuvele | Coming Soon',
+                languageLabel: 'Language selection',
+                eyebrow: 'Luxury Jewellery',
+                statement: 'Simple yet elegant, easy to carry, and perfect jewellery for both everyday life and special travel moments.',
+                comingSoon: 'Coming Soon'
+            },
+            ja: {
+                title: 'Yuvele | 近日公開',
+                languageLabel: '言語選択',
+                eyebrow: 'ラグジュアリージュエリー',
+                statement: 'シンプルでありながらエレガント。持ち運びやすく、日常にも特別な旅のひとときにも寄り添うジュエリー。',
+                comingSoon: '近日公開'
+            }
+        };
+
+        const languageSwitcher = document.querySelector('.language-switcher');
+        const languageButtons = document.querySelectorAll('[data-language]');
+        const translatedElements = document.querySelectorAll('[data-i18n]');
+
+        function setLanguage(language) {
+            const activeLanguage = translations[language] ? language : 'en';
+
+            document.documentElement.lang = activeLanguage;
+            document.title = translations[activeLanguage].title;
+            languageSwitcher.setAttribute('aria-label', translations[activeLanguage].languageLabel);
+
+            translatedElements.forEach((element) => {
+                element.textContent = translations[activeLanguage][element.dataset.i18n];
+            });
+
+            languageButtons.forEach((button) => {
+                button.setAttribute('aria-pressed', String(button.dataset.language === activeLanguage));
+            });
+
+            try {
+                localStorage.setItem('yuvele-language', activeLanguage);
+            } catch (error) {
+                // The page still works if browser storage is unavailable.
+            }
+        }
+
+        languageButtons.forEach((button) => {
+            button.addEventListener('click', () => setLanguage(button.dataset.language));
+        });
+
+        let savedLanguage = 'en';
+
+        try {
+            savedLanguage = localStorage.getItem('yuvele-language') || 'en';
+        } catch (error) {
+            savedLanguage = 'en';
+        }
+
+        setLanguage(savedLanguage);
+    </script>
+</body>
+</html>
