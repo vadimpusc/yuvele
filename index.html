@@ -162,6 +162,27 @@
             text-transform: uppercase;
         }
 
+        .contact-email {
+            display: inline-block;
+            margin-top: 1.35rem;
+            color: var(--charcoal);
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.16em;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-email:hover,
+        .contact-email:focus-visible {
+            color: var(--gold);
+        }
+
+        .contact-email:focus-visible {
+            outline: 1px solid var(--gold);
+            outline-offset: 4px;
+        }
+
         html[lang="ja"] body {
             font-family: 'Montserrat', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
         }
@@ -231,6 +252,8 @@
                 Simple yet elegant, easy to carry, and perfect jewellery for both everyday life and special travel moments.
             </p>
             <p class="coming-soon" data-i18n="comingSoon">Coming Soon</p>
+            <br>
+            <a class="contact-email" href="mailto:info@yuvele.com">info@yuvele.com</a>
         </main>
     </div>
 
