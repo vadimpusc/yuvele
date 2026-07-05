@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Yuvele | Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A96E;
+            --gold-soft: #D8C39A;
+            --dark: #1A1A1A;
+            --cream: #FAF8F5;
+            --ivory: #F2ECE2;
+            --charcoal: #2D2D2D;
+            --line: rgba(201, 169, 110, 0.42);
+            --veil: rgba(250, 248, 245, 0.74);
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background:
+                radial-gradient(circle at 18% 18%, rgba(201, 169, 110, 0.15), transparent 30%),
+                radial-gradient(circle at 78% 76%, rgba(216, 195, 154, 0.22), transparent 26%),
+                linear-gradient(135deg, var(--cream) 0%, var(--ivory) 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A96E' stroke-opacity='0.06'%3E%3Ccircle cx='36' cy='36' r='15'/%3E%3Cpath d='M36 3v18M36 51v18M3 36h18M51 36h18'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.72;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 3;
+            display: flex;
+            gap: 0.35rem;
+            padding: 0.35rem;
+            border: 1px solid rgba(201, 169, 110, 0.38);
+            background: var(--veil);
+            backdrop-filter: blur(12px);
+        }
+
+        .language-button {
+            min-width: 3rem;
+            border: 0;
+            padding: 0.55rem 0.75rem;
+            background: transparent;
+            color: var(--charcoal);
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .language-button[aria-pressed="true"] {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .language-button:focus-visible,
+        .button:focus-visible,
+        .contact-email:focus-visible {
+            outline: 1px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .page {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 5.5rem 2rem 2.5rem;
+        }
+
+        .page::before,
+        .page::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            border: 1px solid var(--line);
+        }
+
+        .page::before {
+            width: min(72vw, 620px);
+            aspect-ratio: 1;
+            transform: rotate(45deg);
+        }
+
+        .page::after {
+            width: min(52vw, 450px);
+            aspect-ratio: 1;
+            border-color: rgba(201, 169, 110, 0.22);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 860px);
+            text-align: center;
+            padding: 4rem 1.25rem;
+        }
+
+        .brand {
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.52em;
+            text-transform: uppercase;
+        }
+
+        .error-code {
+            margin-top: 1.15rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(7rem, 25vw, 14rem);
+            font-weight: 300;
+            line-height: 0.8;
+            letter-spacing: 0.08em;
+        }
+
+        h1 {
+            margin-top: 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.15rem, 6vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .divider {
+            width: 74px;
+            height: 1px;
+            margin: 2rem auto;
+            background: var(--gold);
+        }
+
+        .statement {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--charcoal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-top: 2.5rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            padding: 0.9rem 1.3rem;
+            border: 1px solid var(--gold);
+            color: var(--dark);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .button-primary {
+            background: var(--gold);
+        }
+
+        .button-secondary {
+            background: rgba(250, 248, 245, 0.5);
+        }
+
+        .button:hover {
+            border-color: var(--dark);
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--charcoal);
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.16em;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--gold);
+        }
+
+        html[lang="ja"] body {
+            font-family: 'Montserrat', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+        }
+
+        html[lang="ja"] .statement,
+        html[lang="ja"] h1 {
+            font-family: 'Cormorant Garamond', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+        }
+
+        html[lang="ja"] .statement {
+            max-width: 700px;
+            font-size: clamp(1.24rem, 2.7vw, 1.75rem);
+            line-height: 1.8;
+        }
+
+        html[lang="ja"] .brand {
+            letter-spacing: 0.24em;
+        }
+
+        @media (max-width: 640px) {
+            .language-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .page {
+                padding: 5rem 1.25rem 1.75rem;
+            }
+
+            .page::before {
+                width: 86vw;
+            }
+
+            .page::after {
+                width: 68vw;
+            }
+
+            main {
+                padding: 3rem 0.25rem;
+            }
+
+            .brand {
+                letter-spacing: 0.32em;
+            }
+
+            .error-code {
+                letter-spacing: 0.04em;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher" aria-label="Language selection">
+        <button class="language-button" type="button" data-language="en" aria-pressed="true">EN</button>
+        <button class="language-button" type="button" data-language="ja" aria-pressed="false">日本語</button>
+    </div>
+
+    <div class="page">
+        <main>
+            <p class="brand">Yuvele</p>
+            <p class="error-code" aria-label="404">404</p>
+            <h1 data-i18n="headline">This page has slipped out of view.</h1>
+            <div class="divider"></div>
+            <p class="statement" data-i18n="statement">
+                The address may have changed, or the page may no longer be available. Return to Yuvele or contact us for assistance.
+            </p>
+            <div class="actions" aria-label="Page options">
+                <a class="button button-primary" href="/" data-i18n="homeLink">Return Home</a>
+                <a class="button button-secondary" href="mailto:info@yuvele.com" data-i18n="contactLink">Contact Us</a>
+            </div>
+            <a class="contact-email" href="mailto:info@yuvele.com">info@yuvele.com</a>
+        </main>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: 'Yuvele | Page Not Found',
+                languageLabel: 'Language selection',
+                actionsLabel: 'Page options',
+                headline: 'This page has slipped out of view.',
+                statement: 'The address may have changed, or the page may no longer be available. Return to Yuvele or contact us for assistance.',
+                homeLink: 'Return Home',
+                contactLink: 'Contact Us'
+            },
+            ja: {
+                title: 'Yuvele | ページが見つかりません',
+                languageLabel: '言語選択',
+                actionsLabel: 'ページの選択肢',
+                headline: 'お探しのページは見つかりませんでした。',
+                statement: 'アドレスが変更されたか、ページが現在ご利用いただけない可能性があります。Yuveleのホームへ戻るか、お問い合わせください。',
+                homeLink: 'ホームへ戻る',
+                contactLink: 'お問い合わせ'
+            }
+        };
+
+        const languageSwitcher = document.querySelector('.language-switcher');
+        const actions = document.querySelector('.actions');
+        const languageButtons = document.querySelectorAll('[data-language]');
+        const translatedElements = document.querySelectorAll('[data-i18n]');
+
+        function setLanguage(language) {
+            const activeLanguage = translations[language] ? language : 'en';
+
+            document.documentElement.lang = activeLanguage;
+            document.title = translations[activeLanguage].title;
+            languageSwitcher.setAttribute('aria-label', translations[activeLanguage].languageLabel);
+            actions.setAttribute('aria-label', translations[activeLanguage].actionsLabel);
+
+            translatedElements.forEach((element) => {
+                element.textContent = translations[activeLanguage][element.dataset.i18n];
+            });
+
+            languageButtons.forEach((button) => {
+                button.setAttribute('aria-pressed', String(button.dataset.language === activeLanguage));
+            });
+
+            try {
+                localStorage.setItem('yuvele-language', activeLanguage);
+            } catch (error) {
+                // The page still works if browser storage is unavailable.
+            }
+        }
+
+        languageButtons.forEach((button) => {
+            button.addEventListener('click', () => setLanguage(button.dataset.language));
+        });
+
+        let savedLanguage = 'en';
+
+        try {
+            savedLanguage = localStorage.getItem('yuvele-language') || 'en';
+        } catch (error) {
+            savedLanguage = 'en';
+        }
+
+        setLanguage(savedLanguage);
+    </script>
+</body>
+</html>
